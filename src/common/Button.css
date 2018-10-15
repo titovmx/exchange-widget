@@ -1,0 +1,20 @@
+.rvl-button > button {
+  padding: 1rem 4.125rem;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.rvl-button > .primary {
+  color: #eee;
+  background-color: #eb008d;
+}
+
+.rvl-button > .primary:hover {
+  background-color: #e00087;
+}

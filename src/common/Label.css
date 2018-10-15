@@ -1,0 +1,12 @@
+.rvl-label {
+  color: #a0a6ad;
+  text-transform: capitalize;
+}
+
+.rvl-label.middle {
+  font-size: 1.2em;
+}
+
+.rvl-label.large {
+  font-size: 1.5em;
+}

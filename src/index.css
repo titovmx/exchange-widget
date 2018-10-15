@@ -1,14 +1,25 @@
+@font-face {
+  font-family: 'Futura';
+  src: url('assets/fonts/FuturaBookC.eot'), url('assets/fonts/FuturaBookC.ttf'),
+    url('assets/fonts/FuturaBookC.woff') format('woff');
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-size: 16px;
+  font-family: Roboto, -apple-system, Helvetica Neue, Helvetica, Segoe UI, Arial, sans-serif;
+  color: #191c1e;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 400;
+  font-family: Futura New, Futura, Avenir, sans-serif;
 }

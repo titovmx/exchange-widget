@@ -1,0 +1,21 @@
+.account-card {
+  margin-bottom: 1.5em;
+  padding: 1.5em;
+  box-shadow: 0 0.3rem 2rem rgba(0, 0, 0, 0.15);
+  text-align: start;
+}
+
+.account-card > .rvl-dropdown {
+  margin-top: 1em;
+}
+
+.account-card > .rvl-label:last-child {
+  margin-top: 0.5em;
+}
+
+.account-card .account-dropdown-option {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-between;
+}
