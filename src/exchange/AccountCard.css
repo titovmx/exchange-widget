@@ -5,8 +5,10 @@
   text-align: start;
 }
 
-.account-card > .rvl-dropdown {
-  margin-top: 1em;
+.account-card .rvl-dropdown {
+  flex: 1 1;
+  max-width: 50%;
+  margin-right: 0.3rem;
 }
 
 .account-card > .rvl-label:last-child {
@@ -17,5 +19,12 @@
   display: flex;
   flex-direction: row;
   flex-grow: 1;
+  justify-content: space-between;
+}
+
+.account-card > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 }

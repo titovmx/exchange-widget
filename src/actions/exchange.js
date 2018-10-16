@@ -1,13 +1,16 @@
+export const SET_FROM = 'SET_FROM';
+export const SET_TO = 'SET_FROM';
+
 export function setFrom(wallet) {
   return {
-    type: 'SET_FROM',
+    type: SET_FROM,
     payload: wallet,
   };
 }
 
 export function setTo(wallet) {
   return {
-    type: 'SET_TO',
+    type: SET_TO,
     payload: wallet,
   };
 }

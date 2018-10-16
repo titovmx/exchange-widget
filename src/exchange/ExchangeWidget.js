@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import AccountCard from './AccountCard';
 import Button from '../common/Button';
@@ -17,4 +18,9 @@ class ExchangeWidget extends Component {
   }
 }
 
-export default ExchangeWidget;
+const mapStateToProps = store => ({
+  account: store.account,
+  exchange: store.exchange,
+});
+
+export default connect(mapStateToProps)(ExchangeWidget);
