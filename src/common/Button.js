@@ -4,11 +4,12 @@ import './Button.css';
 
 class Button extends Component {
   render() {
-    const { caption, onClick, type } = this.props;
+    const { caption, canClick, onClick, type } = this.props;
+    const disabled = !canClick();
 
     return (
       <div className="rvl-button">
-        <button className={type} onClick={onClick}>
+        <button className={type} onClick={onClick} disabled={disabled}>
           {caption}
         </button>
       </div>
