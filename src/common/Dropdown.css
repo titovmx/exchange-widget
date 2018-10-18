@@ -5,6 +5,7 @@
 .rvl-dropdown .rvl-dropdown-options {
   position: absolute;
   background: #fff;
+  z-index: 2;
   list-style: none;
   margin: 0.5rem 0 0 0;
   padding: 0;
@@ -34,6 +35,7 @@
 }
 
 .rvl-dropdown .arrow-down {
+  margin-left: 1rem;
   padding-bottom: 1rem;
   transform: rotate(90deg);
 }

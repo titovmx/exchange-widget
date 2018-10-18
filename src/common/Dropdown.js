@@ -58,6 +58,7 @@ class Dropdown extends Component {
   }
 
   selectOption(option, event) {
+    console.log(this.props.onSelect);
     this.props.onSelect(option);
     this.setState({ isOpen: false });
   }

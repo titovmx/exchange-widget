@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Base",
+    "balance": 22587,
+    "currency": {
+      "icon": "£",
+      "shortName": "GBP",
+      "fullName": "Great Britain Pound",
+      "symbol": "£"
+    }
+  },
+  {
+    "name": "US Office",
+    "balance": 54765.19,
+    "currency": {
+      "icon": "$",
+      "shortName": "USD",
+      "fullName": "United States Dollar",
+      "symbol": "$"
+    }
+  },
+  {
+    "name": "Business Trips",
+    "balance": 1000,
+    "currency": {
+      "icon": "€",
+      "shortName": "EUR",
+      "fullName": "Euro",
+      "symbol": "€"
+    }
+  }
+]
