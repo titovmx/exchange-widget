@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ExchangeCard from './ExchangeCard';
 import ExchangeRate from './ExchangeRate';
 import Button from '../common/Button';
-import { getWallets } from '../actions/account';
+import { getWallets, updateAccount } from '../actions/account';
 import { setFrom, setTo, updateAmount } from '../actions/exchange';
 
 import './ExchangeWidget.css';
@@ -12,11 +12,33 @@ import './ExchangeWidget.css';
 class ExchangeWidget extends Component {
   submit = {
     canExecute: () => {
-      const { from, to } = this.props.exchange;
-      return from && to && from.currency.shortName !== to.currency.shortName;
+      const { from, fromAmount, to } = this.props.exchange;
+      const isEnoughBalance = from && from.balance >= fromAmount;
+      const isValidAmount = !isNaN(fromAmount);
+      return (
+        from &&
+        to &&
+        parseFloat(fromAmount) !== 0 &&
+        from.currency.shortName !== to.currency.shortName &&
+        isEnoughBalance &&
+        isValidAmount
+      );
     },
     execute: () => {
-      console.log('Exchangeqewqwe!');
+      const { from, fromAmount, to, toAmount } = this.props.exchange;
+      const { setFromAction, setToAction, changeAmountAction } = this.props;
+
+      from.balance -= fromAmount;
+      const newFrom = { ...from };
+      updateAccount(newFrom);
+      setFromAction(newFrom);
+
+      to.balance += toAmount;
+      const newTo = { ...to };
+      updateAccount();
+      setToAction(newTo);
+
+      changeAmountAction(0);
     },
   };
 

@@ -1,4 +1,4 @@
-import { GET_WALLETS_REQUEST, GET_WALLETS_SUCCESS, GET_WALLETS_FAILED } from '../actions/account';
+import { GET_WALLETS_REQUEST, GET_WALLETS_SUCCESS, UPDATE_WALLETS } from '../actions/account';
 
 const initialState = {
   wallets: [],
@@ -11,8 +11,8 @@ export function accountReducer(state = initialState, action) {
       return { ...state, loading: true };
     case GET_WALLETS_SUCCESS:
       return { ...state, wallets: action.payload, loading: false };
-    case GET_WALLETS_FAILED:
-      return state;
+    case UPDATE_WALLETS:
+      return { ...state, wallets: action.payload };
     default:
       return state;
   }

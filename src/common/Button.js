@@ -6,7 +6,6 @@ class Button extends Component {
   render() {
     const { caption, canClick, onClick, type } = this.props;
     const disabled = !canClick();
-    console.log(disabled);
 
     return (
       <div className="rvl-button">

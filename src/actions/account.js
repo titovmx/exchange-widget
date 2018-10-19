@@ -7,6 +7,8 @@ export const GET_WALLETS_SUCCESS = 'GET_WALLETS_SUCCESS';
 
 export const GET_WALLETS_FAILED = 'GET_WALLETS_FAILED';
 
+export const UPDATE_WALLETS = 'UPDATE_WALLETS';
+
 export function getWallets() {
   return dispatch => {
     dispatch({
@@ -23,5 +25,17 @@ export function getWallets() {
         dispatch(setTo(wallets[1]));
       }
     }, 100);
+  };
+}
+
+export function updateAccount(account) {
+  return (dispatch, getState) => {
+    const wallets = getState().account.wallets;
+    const accountIndex = wallets.findIndex(w => w.name === account.name);
+    wallets.splice(accountIndex, 1, [account]);
+    dispatch({
+      type: UPDATE_WALLETS,
+      payload: [...wallets],
+    });
   };
 }

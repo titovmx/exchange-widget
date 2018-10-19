@@ -12,7 +12,7 @@ class ExchangeRate extends Component {
       caption = `
         ${base.symbol}1
         = 
-        ${target.symbol}${rate}`;
+        ${target.symbol}${rate.toFixed(4)}`;
     }
 
     return (

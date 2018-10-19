@@ -9,7 +9,7 @@ import './ExchangeCard.css';
 
 class ExchangeCard extends Component {
   handleInputChange(event) {
-    this.props.onAmountChange(event.target.value);
+    this.props.onAmountChange(parseFloat(event.target.value));
   }
 
   render() {
@@ -31,9 +31,14 @@ class ExchangeCard extends Component {
 
     const amountTemplate =
       direction === 'from' ? (
-        <Input onChange={this.handleInputChange.bind(this)} />
+        <div className="from-amount">
+          <Label caption="-" size="large" />
+          <Input value={amount} onChange={this.handleInputChange.bind(this)} />
+        </div>
       ) : (
-        <Label caption={amount} size="middle" />
+        <div className="to-amount">
+          <Label caption={`+${amount.toFixed(2)}`} size="middle" />
+        </div>
       );
 
     return (

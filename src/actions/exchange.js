@@ -42,7 +42,7 @@ export function setFrom(wallet) {
       updateRate(base, target).then(rate => {
         dispatch({
           type: UPDATE_RATE_SUCCESS,
-          payload: rate.toFixed(4),
+          payload: rate,
         });
 
         dispatch(updateAmount());
@@ -70,7 +70,7 @@ export function setTo(wallet) {
       updateRate(base, target).then(rate => {
         dispatch({
           type: UPDATE_RATE_SUCCESS,
-          payload: rate.toFixed(4),
+          payload: rate,
         });
 
         dispatch(updateAmount());

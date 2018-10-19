@@ -33,3 +33,19 @@
   font-size: 1.2rem;
   text-align: right;
 }
+
+.exchange-card .from-amount {
+  display: flex;
+  flex-direction: row;
+}
+
+.exchange-card .from-amount > .rvl-label {
+  color: #0075eb;
+  margin: auto;
+  font-size: 2rem;
+}
+
+.exchange-card .to-amount > .rvl-label {
+  color: #eb008d;
+  margin: auto;
+}

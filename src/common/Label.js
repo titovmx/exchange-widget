@@ -7,7 +7,7 @@ class Label extends Component {
     const { caption, size } = this.props;
     const className = `rvl-label ${size || 'small'}`;
 
-    return <div className={className}>{caption}</div>;
+    return <div className={className}>{caption || ''}</div>;
   }
 }
 
