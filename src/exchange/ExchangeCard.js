@@ -25,17 +25,21 @@ class ExchangeCard extends Component {
       );
     };
 
-    const amount = direction === 'from' ? <Input /> : <Label caption={'10'} />;
-    const balanceCaption = `You have balance ${accountUtils.formatBalance(selected)}`;
+    const amount = direction === 'from' ? <Input /> : <Label caption={10} size="middle" />;
 
     return (
-      <div className="account-card">
+      <div className="exchange-card">
         <Label caption={direction} size="middle" />
         <div>
-          <Dropdown options={wallets} value={selected} optionTemplate={dropdownOptionTemplate} onSelect={onSelect} />
+          <Dropdown
+            options={wallets}
+            value={selected}
+            optionTemplate={dropdownOptionTemplate}
+            onSelect={onSelect}
+            size="middle"
+          />
           {amount}
         </div>
-        <Label caption={balanceCaption} />
       </div>
     );
   }

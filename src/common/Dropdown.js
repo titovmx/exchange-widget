@@ -58,17 +58,17 @@ class Dropdown extends Component {
   }
 
   selectOption(option, event) {
-    console.log(this.props.onSelect);
     this.props.onSelect(option);
     this.setState({ isOpen: false });
   }
 
   render() {
-    const { options, value, optionTemplate } = this.props;
+    const { options, value, optionTemplate, size } = this.props;
+    const className = `rvl-dropdown ${size || 'small'}`;
     const optionList = this.buildList(options, optionTemplate);
 
     return (
-      <div className="rvl-dropdown">
+      <div className={className}>
         <div
           className="rvl-dropdown-value"
           onMouseDown={this.handleMouseDown.bind(this)}

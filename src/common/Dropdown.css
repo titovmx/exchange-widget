@@ -2,6 +2,14 @@
   position: relative;
 }
 
+.rvl-dropdown.middle {
+  font-size: 1.2em;
+}
+
+.rvl-dropdown.large {
+  font-size: 1.5em;
+}
+
 .rvl-dropdown .rvl-dropdown-options {
   position: absolute;
   background: #fff;

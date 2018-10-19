@@ -1,5 +1,5 @@
 import wallets from '../assets/data/wallets.json';
-import { SET_FROM, SET_TO } from './exchange.js';
+import { setFrom, setTo } from './exchange.js';
 
 export const GET_WALLETS_REQUEST = 'GET_WALLETS_REQUEST';
 
@@ -19,15 +19,9 @@ export function getWallets() {
         payload: wallets,
       });
       if (wallets.length > 1) {
-        dispatch({
-          type: SET_FROM,
-          payload: wallets[0],
-        });
-        dispatch({
-          type: SET_TO,
-          payload: wallets[1],
-        });
+        dispatch(setFrom(wallets[0]));
+        dispatch(setTo(wallets[1]));
       }
-    }, 1000);
+    }, 100);
   };
 }

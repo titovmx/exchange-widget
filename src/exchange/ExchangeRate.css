@@ -1,0 +1,9 @@
+.exchange-rate {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto 1rem;
+}
+
+.exchange-rate > .rvl-label {
+  color: #0075eb;
+}

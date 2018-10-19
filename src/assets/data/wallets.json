@@ -1,12 +1,12 @@
 [
   {
-    "name": "Base",
-    "balance": 22587,
+    "name": "Business Trips",
+    "balance": 1000,
     "currency": {
-      "icon": "£",
-      "shortName": "GBP",
-      "fullName": "Great Britain Pound",
-      "symbol": "£"
+      "icon": "€",
+      "shortName": "EUR",
+      "fullName": "Euro",
+      "symbol": "€"
     }
   },
   {
@@ -20,13 +20,13 @@
     }
   },
   {
-    "name": "Business Trips",
-    "balance": 1000,
+    "name": "Base",
+    "balance": 22587,
     "currency": {
-      "icon": "€",
-      "shortName": "EUR",
-      "fullName": "Euro",
-      "symbol": "€"
+      "icon": "£",
+      "shortName": "GBP",
+      "fullName": "Great Britain Pound",
+      "symbol": "£"
     }
   }
 ]
