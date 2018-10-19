@@ -26,7 +26,7 @@ class ExchangeWidget extends Component {
     },
     execute: () => {
       const { from, fromAmount, to, toAmount } = this.props.exchange;
-      const { setFromAction, setToAction, changeAmountAction } = this.props;
+      const { setFromAction, setToAction } = this.props;
 
       from.balance -= fromAmount;
       const newFrom = { ...from };
@@ -37,13 +37,17 @@ class ExchangeWidget extends Component {
       const newTo = { ...to };
       updateAccount();
       setToAction(newTo);
-
-      changeAmountAction(0);
     },
   };
 
   componentDidMount() {
     this.props.getWalletsAction();
+  }
+
+  handleKeydown(event) {
+    if (event.key === 'Enter' && this.submit.canExecute()) {
+      this.submit.execute();
+    }
   }
 
   render() {
@@ -54,7 +58,7 @@ class ExchangeWidget extends Component {
     const { setFromAction, setToAction, changeAmountAction } = this.props;
 
     return (
-      <div className="exchange-widget">
+      <div className="exchange-widget" onKeyDown={this.handleKeydown.bind(this)}>
         <ExchangeRate base={baseCurrency} target={targetCurrency} rate={rate} loading={rateLoading} />
         <ExchangeCard
           direction="from"

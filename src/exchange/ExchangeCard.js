@@ -33,7 +33,7 @@ class ExchangeCard extends Component {
       direction === 'from' ? (
         <div className="from-amount">
           <Label caption="-" size="large" />
-          <Input value={amount} onChange={this.handleInputChange.bind(this)} />
+          <Input value={amount} autoFocus={true} onChange={this.handleInputChange.bind(this)} />
         </div>
       ) : (
         <div className="to-amount">
