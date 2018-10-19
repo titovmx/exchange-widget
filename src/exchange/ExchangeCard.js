@@ -8,8 +8,12 @@ import * as accountUtils from '../utils/account';
 import './ExchangeCard.css';
 
 class ExchangeCard extends Component {
+  handleInputChange(event) {
+    this.props.onAmountChange(event.target.value);
+  }
+
   render() {
-    const { direction, wallets, selected, onSelect } = this.props;
+    const { direction, wallets, selected, onSelect, amount } = this.props;
 
     const dropdownOptionTemplate = option => {
       const currency = option && option.currency;
@@ -25,7 +29,12 @@ class ExchangeCard extends Component {
       );
     };
 
-    const amount = direction === 'from' ? <Input /> : <Label caption={10} size="middle" />;
+    const amountTemplate =
+      direction === 'from' ? (
+        <Input onChange={this.handleInputChange.bind(this)} />
+      ) : (
+        <Label caption={amount} size="middle" />
+      );
 
     return (
       <div className="exchange-card">
@@ -38,7 +47,7 @@ class ExchangeCard extends Component {
             onSelect={onSelect}
             size="middle"
           />
-          {amount}
+          {amountTemplate}
         </div>
       </div>
     );

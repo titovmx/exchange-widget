@@ -1,4 +1,7 @@
 import Rate from '../data/Rate';
+import Job from '../utils/Job';
+
+const job = new Job();
 
 export const SET_FROM = 'SET_FROM';
 
@@ -13,6 +16,10 @@ export const UPDATE_RATE = 'UPDATE_RATE';
 export const UPDATE_RATE_SUCCESS = 'UPDATE_RATE_SUCCESS';
 
 export const UPDATE_RATE_FAIL = 'UPDATE_RATE_FAIL';
+
+export const UPDATE_FROM_AMOUNT = 'UPDATE_FROM_AMOUNT';
+
+export const UPDATE_TO_AMOUNT = 'UPDATE_TO_AMOUNT';
 
 export function setFrom(wallet) {
   return (dispatch, getState) => {
@@ -35,10 +42,12 @@ export function setFrom(wallet) {
       updateRate(base, target).then(rate => {
         dispatch({
           type: UPDATE_RATE_SUCCESS,
-          payload: rate,
+          payload: rate.toFixed(4),
         });
 
-        setTimeout(pollRate, 10000);
+        dispatch(updateAmount());
+
+        job.run(pollRate, 10000);
       });
     pollRate();
   };
@@ -61,12 +70,32 @@ export function setTo(wallet) {
       updateRate(base, target).then(rate => {
         dispatch({
           type: UPDATE_RATE_SUCCESS,
-          payload: rate,
+          payload: rate.toFixed(4),
         });
 
-        setTimeout(pollRate, 10000);
+        dispatch(updateAmount());
+
+        job.run(pollRate, 10000);
       });
     pollRate();
+  };
+}
+
+export function updateAmount(fromAmount) {
+  return (dispatch, getState) => {
+    if (!fromAmount) {
+      fromAmount = getState().exchange.fromAmount;
+    }
+    dispatch({
+      type: UPDATE_FROM_AMOUNT,
+      payload: fromAmount,
+    });
+    const rate = getState().exchange.rate;
+    const toAmount = fromAmount * rate;
+    dispatch({
+      type: UPDATE_TO_AMOUNT,
+      payload: toAmount,
+    });
   };
 }
 

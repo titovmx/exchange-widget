@@ -1,4 +1,11 @@
-import { SET_FROM, SET_TO, UPDATE_RATE, UPDATE_RATE_SUCCESS } from '../actions/exchange';
+import {
+  SET_FROM,
+  SET_TO,
+  UPDATE_RATE,
+  UPDATE_RATE_SUCCESS,
+  UPDATE_FROM_AMOUNT,
+  UPDATE_TO_AMOUNT,
+} from '../actions/exchange';
 
 const initialState = {
   rate: 1,
@@ -19,6 +26,10 @@ export function exchangeReducer(state = initialState, action) {
       return { ...state, rateLoading: true };
     case UPDATE_RATE_SUCCESS:
       return { ...state, rate: action.payload, rateLoading: false };
+    case UPDATE_FROM_AMOUNT:
+      return { ...state, fromAmount: action.payload };
+    case UPDATE_TO_AMOUNT:
+      return { ...state, toAmount: action.payload };
     default:
       return state;
   }

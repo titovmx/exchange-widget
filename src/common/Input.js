@@ -4,11 +4,12 @@ import './Input.css';
 
 class Input extends Component {
   render() {
+    const { onChange } = this.props;
     const className = `rvl-input`;
 
     return (
       <div className={className}>
-        <input type="text" />
+        <input type="text" onChange={onChange} />
       </div>
     );
   }
